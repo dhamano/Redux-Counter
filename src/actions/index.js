@@ -1,5 +1,7 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
+export const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
+export const INCREMENT_ASYNC = 'INCREMENT_ASYNC';
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -9,10 +11,31 @@ export const DECREMENT = 'DECREMENT';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
-export const increment = () => {
-  // Fill in this function
+export const increment = count => {
+  return {
+    type: "INCREMENT",
+    payload: count + 1
+  }
 };
 
-export const decrement = () => {
-  // Fill in this function
+export const decrement = count => {
+  return {
+    type: "DECREMENT",
+    payload: count - 1
+  }
+};
+
+export const incrementIfOdd = count => {
+  let countIfOdd = ((count % 2) !== 0) ? count + 1 : count;
+  return {
+    type: "INCREMENT_IF_ODD",
+    payload: countIfOdd
+  }
+};
+
+export const incrementAsync = count => {
+  return {
+    type: "INCREMENT_ASYNC",
+    payload: count + 1
+  }
 };
